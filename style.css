@@ -26,7 +26,7 @@ html {
     scroll-behavior: smooth;
 }
 
-:root {
+/* :root {
     --bg: #0D0D0D;
     --bg2: #111111;
     --bg3: #1a1a1a;
@@ -38,6 +38,31 @@ html {
     --text-muted: #888888;
     --text-dim: #444444;
     --border: rgba(124, 58, 237, 0.2);
+} */
+
+:root {
+    --bg: #0D0D0D;
+    --bg2: #111111;
+    --bg3: #1a1a1a;
+
+    /* Card backgrounds */
+    --card-bg: #09051A;
+    --card-bg-hover: #120B2E;
+
+    --primary: #7C3AED;
+    --primary-light: #A78BFA;
+
+    --accent: #F5F3FF;
+    --white: #FFFFFF;
+    --white2: #FAF9F6;
+
+    --text-muted: #888888;
+    --text-dim: #444444;
+
+    --border: rgba(124, 58, 237, 0.25);
+
+    /* Optional glow */
+    --card-glow: rgba(124, 58, 237, 0.08);
 }
 
 body {
@@ -417,7 +442,8 @@ section .section-parent .section-text .parent-techstack .techstack {
     padding: 2rem;
     border: 2px solid var(--border);
     border-radius: 10px;
-    background-color: #060916;
+    /* background-color: #060916; */
+    background-color: var(--card-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -542,7 +568,8 @@ section .section-parent .section-image .section-card .section-card-header {
     align-items: center;
     padding: 0 1.5rem;
     height: 70px;
-    background-color: #0A0F20;
+    /* background-color: #0A0F20; */
+    background-color: var(--card-bg);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -588,7 +615,8 @@ section .section-parent .section-image .section-card .section-card-body {
     height: calc(100% - 70px);
     padding: 1.5rem;
     font-family: 'DM Sans', sans-serif;
-    background-color: #060916;
+    /* background-color: #060916; */
+    background-color: var(--card-bg);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border: 1px solid var(--border);
@@ -771,14 +799,15 @@ section#portfolio .body-portfolio .body-cards .list-cards {
     /* width: 100%; */
     height: 100%;
     /* padding: 1.5rem */
-    border: 1px solid var(--border);
+    border: 2px solid var(--border);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
 section#portfolio .body-portfolio .body-cards .list-cards .list-body-cards {
     padding: 1.5rem;
-    background-color: #060916;
+    /* background-color: #060916; */
+    background-color: var(--card-bg);
     border: 1px solid var(--border);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -915,11 +944,21 @@ section#experience .parent-experience .body-experience .row::before {
 }
 
 section#experience .parent-experience .body-experience .card {
-    background-color: #060916;
-    border: 1px solid var(--border);
+    /* background-color: #060916; */
+    background-color: var(--card-bg);
+    border: 2px solid var(--border);
     /* width: 100%; */
     padding: 1.5rem;
     border-radius: 20px;
+    /* box-shadow: 0 0 50px rgba(124, 58, 237, 0.6); */
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 20px var(--card-glow);
+}
+
+section#experience .parent-experience .body-experience .card:hover {
+    /* box-shadow: var(--card-glow); */
+    background-color: var(--card-bg-hover);
 }
 
 section#experience .parent-experience .body-experience .card h4 {
@@ -932,15 +971,16 @@ section#experience .parent-experience .body-experience .card p {
     margin: 0;
 }
 
-section#experience .parent-experience .body-experience .card .card-header{
+section#experience .parent-experience .body-experience .card .card-header {
     display: flex;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     margin-bottom: 1rem;
     padding: 0;
     gap: 1rem;
 }
 
-section#experience .parent-experience .body-experience .card .card-header .card-icon{
+section#experience .parent-experience .body-experience .card .card-header .card-icon {
     width: 60px;
     height: 60px;
     background-color: var(--primary-light);
@@ -950,28 +990,194 @@ section#experience .parent-experience .body-experience .card .card-header .card-
     align-items: center;
 }
 
-section#experience .parent-experience .body-experience .card .card-header .card-icon .fa{
+section#experience .parent-experience .body-experience .card .card-header .card-icon .fa {
     font-size: 23px;
 }
 
-section#experience .parent-experience .body-experience .card .card-header .card-header-name h4{
+section#experience .parent-experience .body-experience .card .card-header .card-header-name {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+section#experience .parent-experience .body-experience .card .card-header .card-header-name h4 {
     font-family: 'Syne', sans-serif;
     font-size: 18px;
 }
 
-section#experience .parent-experience .body-experience .card .card-header .card-header-name span{
+section#experience .parent-experience .body-experience .card .card-header .card-header-name span {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     color: #808080;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14.5px;
+    margin: 0.5rem 0 0;
 }
 
-section#experience .parent-experience .body-experience .card .card-header .card-header-name span .dot{
+section#experience .parent-experience .body-experience .card p {
+    display: flex;
+    justify-content: center;
+}
+
+.dot {
     width: 5px;
     height: 5px;
     background: #808080;
     border-radius: 50%;
     display: inline-block;
+}
+
+section#experience .parent-experience .body-experience .card ul {
+    padding: 0 24px;
+    margin: 0;
+}
+
+section#experience .parent-experience .body-experience .card ul li {
+    color: var(--white2);
+    /* color: #DDB8D3; */
+    /* color: #808080; */
+    /* font-family: 'DM Sans', sans-serif; */
+    font-family: 'Syne', sans-serif;
+    /* line-height: 40px; */
+    margin: 1rem 0 0;
+}
+
+section#contactMe {
+    padding: 2rem;
+}
+
+section#contactMe .header-contactMe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section#contactMe .header-contactMe .contactMe-header-accent {
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    margin-top: 1rem;
+    font-size: 40px;
+    /* width: 400px; */
+    text-align: center;
+}
+
+section#contactMe .header-contactMe .contactMe-header-accent b {
+    color: var(--primary-light);
+    font-style: italic;
+}
+
+section#contactMe .header-contactMe p {
+    color: var(--text-muted);
+    font-family: 'Syne', sans-serif;
+    width: 500px;
+    text-align: center;
+}
+
+section#contactMe .body-contactMe {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    gap: 2rem;
+    margin: 3rem 0 0;
+    height: 100%;
+}
+
+section#contactMe .body-contactMe .contactMe-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+section#contactMe .body-contactMe .contactMe-form .contactMe {
+    width: 100%;
+    height: 100%;
+    /* background-color: #060916; */
+    background-color: var(--card-bg);
+    border: 2px solid var(--border);
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+section#contactMe .body-contactMe .contactMe-form .contactMe h3 {
+    margin: 0;
+    font-family: 'Syne', sans-serif;
+    color: var(--white2);
+    font-size: 20px;
+}
+
+section#contactMe .body-contactMe .contactMe-form .contactMe .card-parent{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0 0;
+}
+
+section#contactMe .body-contactMe .contactMe-form .contactMe .card-parent .card-icon{
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+section#contactMe .body-contactMe .contactMe-form .contactMe .card-parent .card-icon .fa{
+    font-size: 18px;
+}
+
+section#contactMe .body-contactMe .contactMe-form .contactMe .card-parent p{
+    margin: 0;
+}
+
+section#contactMe .body-contactMe .contactMe-form .contactMe .card-parent .card-info{
+    /* font-family: 'DM Sans', sans-serif; */
+    font-family: 'Syne', sans-serif;
+}
+
+section#contactMe .body-contactMe .contactMe-form .contactMe .card-parent .card-info span{
+    color: #808080;
+}
+
+section#contactMe .body-contactMe .contactMe-form .contactMe .card-parent .card-info p{
+    color: var(--white2)
+}
+
+section#contactMe .body-contactMe .contactForm {
+    width: 100%;
+    background-color: var(--card-bg);
+    border: 2px solid var(--border);
+    padding: 2rem;
+    font-family: 'Syne', sans-serif;
+    border-radius: 20px;
+}
+
+
+section#contactMe .body-contactMe .contactForm label{
+    color: var(--white2)
+}
+
+section#contactMe .body-contactMe .contactForm input{
+    background-color: transparent;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+}
+
+section#contactMe .body-contactMe .contactForm textarea{
+    background-color: transparent;
+    border: 1px solid var(--border);
+    /* border-radius: 28px; */
+}
+
+section#contactMe .body-contactMe .contactForm button{
+    width: 100%;
+    padding: 10px 30px;
+    border-radius: 28px;
+    background-color: var(--primary-light);
+    color: var(--white2);
 }
 
 @keyframes card-typing {
@@ -1196,6 +1402,20 @@ section#experience .parent-experience .body-experience .card .card-header .card-
 
     section#experience .parent-experience .body-experience {
         width: 1440px;
+    }
+
+    /* contact Me */
+
+    section#contactMe {
+        padding: 4rem 2rem 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    section#contactMe .body-contactMe {
+        width: 1400px;
     }
 }
 
